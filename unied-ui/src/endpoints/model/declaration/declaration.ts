@@ -1,7 +1,7 @@
-export interface Declaration {
-  id_declaration: number;
-  id_student: number;
-  declaration_type: string;
+export interface CertificateModel {
+  id: number;
+  student_id: number;
+  certificate_type: string;
   issue_date: Date;
   expiry_date?: Date;
   reason?: string;

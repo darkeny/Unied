@@ -1,12 +1,12 @@
-export interface GradeModel {
-  id_grade: number;
-  id_student: number;
-  id_class: number;
-  subject: string;
-  term: string;
-  assessment_type: string;
-  grade_value: number;
-  recorded_at: Date;
-  id_teacher: number;
-  remarks?: string;
+export interface ClassModel {
+id: number;
+  class_code: string;
+  class_name: string;
+  academic_year: string;
+  period: string;
+  room: string;
+  max_capacity: number;
+  teacher_id?: number;
+  status: string;
+
 }
