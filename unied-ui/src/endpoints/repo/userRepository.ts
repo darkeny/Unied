@@ -1,11 +1,11 @@
 import type { IApiResponse } from "../interfaces/api/iApiResponse";
-import type { User } from "../model/userModel";
+import type { UserModel } from "../model/userModel";
 import axios from "axios";
 
 export default class UserRepository {
-  async fetchUserData(): Promise<IApiResponse<User>> {
+  async fetchUserData(): Promise<IApiResponse<UserModel>> {
     try {
-      const response = await axios.get<IApiResponse<User>>(
+      const response = await axios.get<IApiResponse<UserModel>>(
         "https://sua-api.com/users/1"
       );
 
