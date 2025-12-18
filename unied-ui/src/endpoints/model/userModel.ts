@@ -1,5 +1,5 @@
 // types.ts
-export interface User {
+export interface UserModel {
   id: number;
   name: string;
   email: string;
