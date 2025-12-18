@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home } from '../ui/pages/Home';
 
 const AppRoutes: React.FC = () => {
     return (
         <Router>
             <Routes>
                 {/* Rotas Públicas */}
-                {/* <Route path="/" element={<Home />} /> */}
+                <Route path="/" element={<Home />} />
             </Routes>
         </Router>
     );
