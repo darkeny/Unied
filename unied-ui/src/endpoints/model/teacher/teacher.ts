@@ -1,11 +1,11 @@
 export interface TeacherModel {
-  id_teacher: number;
+  id: number;
   employee_number: string;
   full_name: string;
-  specialization: string;
+  specialty: string;
   email: string;
   phone: string;
   admission_date: Date;
   status: string;
-  qualification: string;
+  education: string;
 }

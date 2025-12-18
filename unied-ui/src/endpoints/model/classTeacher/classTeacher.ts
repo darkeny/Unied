@@ -1,7 +1,7 @@
 export interface ClassTeacherModel {
   id: number;
-  id_class: number;
-  id_teacher: number;
+  class_id: number;
+  teacher_id: number;
   subject: string;
-  workload_hours: number;
+  hours: number;
 }

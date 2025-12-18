@@ -1,8 +1,8 @@
 export interface StudentModel {
-  id_student: number;
+  id: number;
   student_number: string;
   full_name: string;
-  date_of_birth: Date;
+  birth_date: Date;
   gender: string;
   email: string;
   phone: string;
@@ -12,4 +12,5 @@ export interface StudentModel {
   registration_date: Date;
   status: string;
   photo?: string;
+
 }
