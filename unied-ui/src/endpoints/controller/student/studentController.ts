@@ -4,7 +4,9 @@ import StudentRepository from "../../repo/student/studentRepository";
 
 export class StudentController extends StudentRepository {
   data: IApiResponse<StudentModel[]> | null = null;
-
+  async readByIdStudents(id: number) {
+    this.data = await this.readById(id);
+  }
   async readAllStudents() {
     this.data = await this.readAll();
   }
@@ -12,10 +14,10 @@ export class StudentController extends StudentRepository {
   async createStudent(student: StudentModel) {
     this.data = await this.create(student);
   }
-    async updateStudent(student: StudentModel) {
+  async updateStudent(student: StudentModel) {
     this.data = await this.update(student);
   }
-      async deleteStudent(idStudent: number) {
+  async deleteStudent(idStudent: number) {
     this.data = await this.delete(idStudent);
   }
 }
