@@ -12,4 +12,7 @@ export class StudentController extends StudentRepository {
   async createStudent(student: StudentModel) {
     this.data = await this.create(student);
   }
+    async updateStudent(student: StudentModel) {
+    this.data = await this.update(student);
+  }
 }
