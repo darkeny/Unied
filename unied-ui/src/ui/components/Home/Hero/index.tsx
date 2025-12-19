@@ -152,7 +152,7 @@ export function Hero({ language }: HeroProps) {
 
                     {/* Books/learning */}
                     <div className="absolute bottom-4 right-8 w-28 h-28 rounded-lg overflow-hidden shadow-lg z-20">
-                      <div className="w-full h-full bg-gradient-to-br from-yellow-50 to-yellow-100 flex items-center justify-center">
+                      <div className="w-full h-full bg-linear-to-br from-yellow-50 to-yellow-100 flex items-center justify-center">
                         <div className="text-center">
                           <div className="text-4xl mb-1">📚</div>
                           <div className="text-yellow-600 font-medium text-xs">{language === 'PT' ? 'Aprendizado' : 'Learning'}</div>
