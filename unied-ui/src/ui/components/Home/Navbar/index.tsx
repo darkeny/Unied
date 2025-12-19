@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { CiLogin } from "react-icons/ci";
-import { IoBusinessOutline, IoBookOutline, IoPeopleOutline, IoStatsChartOutline, IoCalendarOutline, IoDocumentTextOutline, IoShieldCheckmarkOutline, IoSettingsOutline, IoLanguage } from "react-icons/io5";
+import { IoBusinessOutline, IoBookOutline, IoPeopleOutline, IoStatsChartOutline, IoDocumentTextOutline, IoLanguage } from "react-icons/io5";
 import { navbarTexts } from '../../../../translations/navbarTexts';
 
 // Interface para as props

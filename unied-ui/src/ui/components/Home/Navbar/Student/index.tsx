@@ -12,15 +12,12 @@ import {
     CiChat1,
     CiHome,
     CiCalendar,
-    CiEdit,
 } from "react-icons/ci";
 import {
     IoStatsChartOutline,
     IoDocumentTextOutline,
     IoTimeOutline,
     IoLibraryOutline,
-    IoPeopleOutline,
-    IoFolderOpenOutline,
     IoBookOutline,
     IoDocumentsOutline,
 } from "react-icons/io5";
@@ -76,7 +73,6 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
     };
 
     // Período letivo atual
-    const currentTerm = language === 'PT' ? 'Ano Letivo 2026' : 'Academic Year 2026';
 
     // Menu Items
     const menuItems = [

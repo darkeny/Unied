@@ -2,14 +2,12 @@
 import React from 'react';
 import {
   CiBellOn,
-  CiFileOn,
   CiEdit,
   CiUser,
   CiCalendar,
-  CiClock2,
   CiRead
 } from "react-icons/ci";
-import { IoDocumentText, IoCheckmarkCircle, IoChevronForward } from "react-icons/io5";
+import { IoDocumentText } from "react-icons/io5";
 import { BsCheckCircle } from "react-icons/bs";
 
 interface StudentBasicDashboardProps {
@@ -20,9 +18,7 @@ interface StudentBasicDashboardProps {
 
 export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
   studentName = "Maria Silva",
-  studentNumber = "AL2023002",
-  language = 'PT'
-}) => {
+  studentNumber = "AL2023002"}) => {
   // Dados simulados para o dashboard básico
   const dashboardData = {
     // Inscrição Realizada (combinada com Inscrições)
