@@ -1,13 +1,11 @@
-import { useState } from 'react';
-import { Navbar } from '../../components/Home/Navbar';
 import { Hero } from '../../components/Home/Hero';
+import { Navbar } from '../../components/Home/Navbar';
 
 export function Home() {
-  const [language, setLanguage] = useState<'PT' | 'EN'>('PT');
 
   return (
     <>
-      <Navbar language={language} setLanguage={setLanguage} />
+      <Navbar language={"PT"} />
       <Hero language={'PT'} />
     </>
   );

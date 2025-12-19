@@ -117,7 +117,7 @@ export function Hero({ language }: HeroProps) {
                   {/* Decorative elements */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
                   <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-200 rounded-full translate-y-20 -translate-x-20 opacity-50"></div>
-                  
+
                   {/* Student photos in a collage style */}
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80">
                     {/* Main student photo */}
@@ -129,7 +129,7 @@ export function Hero({ language }: HeroProps) {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Teacher photo */}
                     <div className="absolute top-4 right-4 w-32 h-32 rounded-lg overflow-hidden shadow-lg z-20">
                       <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
@@ -139,7 +139,7 @@ export function Hero({ language }: HeroProps) {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Parent photo */}
                     <div className="absolute bottom-8 left-4 w-32 h-32 rounded-lg overflow-hidden shadow-lg z-20">
                       <div className="w-full h-full bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
@@ -149,7 +149,7 @@ export function Hero({ language }: HeroProps) {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Books/learning */}
                     <div className="absolute bottom-4 right-8 w-28 h-28 rounded-lg overflow-hidden shadow-lg z-20">
                       <div className="w-full h-full bg-gradient-to-br from-yellow-50 to-yellow-100 flex items-center justify-center">
@@ -174,61 +174,6 @@ export function Hero({ language }: HeroProps) {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Testimonial Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 py-16 mt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center text-white">
-              <div className="text-4xl mb-4">💬</div>
-              <p className="text-xl italic mb-6 max-w-3xl mx-auto">
-                "{language === 'PT' 
-                  ? 'O Unied transformou completamente nossa gestão escolar. Agora temos mais tempo para o que realmente importa: ensinar.' 
-                  : 'Unied completely transformed our school management. Now we have more time for what really matters: teaching.'}"
-              </p>
-              <div className="flex items-center justify-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center">
-                  <span className="text-white font-bold">MS</span>
-                </div>
-                <div>
-                  <div className="font-semibold">Maria Silva</div>
-                  <div className="text-blue-200 text-sm">{language === 'PT' ? 'Diretora Escolar' : 'School Director'}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="py-16 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {language === 'PT' 
-                ? 'Pronto para revolucionar sua escola?'
-                : 'Ready to revolutionize your school?'}
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              {language === 'PT'
-                ? 'Comece sua transformação digital hoje mesmo. Teste grátis por 30 dias.'
-                : 'Start your digital transformation today. Free trial for 30 days.'}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <NavLink
-                to="/signup"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300"
-              >
-                <span>🎯</span>
-                <span>{language === 'PT' ? 'Começar Teste Grátis' : 'Start Free Trial'}</span>
-              </NavLink>
-              <NavLink
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold text-blue-600 border-2 border-blue-300 rounded-lg hover:border-blue-400 hover:bg-blue-50 transition-all duration-300"
-              >
-                <span>📞</span>
-                <span>{language === 'PT' ? 'Falar com Especialista' : 'Talk to Expert'}</span>
-              </NavLink>
             </div>
           </div>
         </div>

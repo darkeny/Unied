@@ -1,16 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { CiLogin } from "react-icons/ci";
-import { IoBusinessOutline, IoBookOutline, IoPeopleOutline, IoStatsChartOutline, IoCalendarOutline, IoDocumentTextOutline, IoShieldCheckmarkOutline, IoSettingsOutline } from "react-icons/io5";
+import { IoBusinessOutline, IoBookOutline, IoPeopleOutline, IoStatsChartOutline, IoCalendarOutline, IoDocumentTextOutline, IoShieldCheckmarkOutline, IoSettingsOutline, IoLanguage } from "react-icons/io5";
 import { navbarTexts } from '../../../../translations/navbarTexts';
 
 // Interface para as props
 interface NavbarProps {
     language: 'PT' | 'EN';
-    setLanguage: (language: 'PT' | 'EN') => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
+const Navbar: React.FC<NavbarProps> = ({ language }) => {
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
     const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
@@ -107,7 +106,6 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
 
     const handleLanguageSelect = (langCode: 'PT' | 'EN') => {
         setSelectedLanguage(langCode);
-        setLanguage(langCode);
         setLanguageDropdownOpen(false);
     };
 
@@ -138,21 +136,21 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
 
     return (
         <>
-            <nav className="bg-gradient-to-r from-blue-50 via-white to-blue-50/70 border-b border-blue-100 shadow-sm transition-colors duration-300">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    {/* Top Bar - Apenas idioma */}
-                    <div className="flex justify-end items-center h-10 bg-white/80 px-4 rounded-b-2xl">
-                        <div className="flex items-center space-x-4 text-sm">
+            <nav className="bg-white border-b-4 border-blue-400 dark:border-blue-600 shadow-lg transition-colors duration-300">
+                <div className="mx-auto max-w-7xl px-2 ">
+                    {/* Top Bar */}
+                    <div className="flex justify-end items-center h-8 bg-gray-100 dark:bg-gray-800 px-4 rounded-b-2xl">
+                        <div className="flex items-center space-x-4 text-xs">
                             {/* Language Dropdown */}
                             <div className="relative" ref={languageDropdownRef}>
                                 <button
                                     onClick={toggleLanguageDropdown}
-                                    className="flex items-center gap-2 px-3 py-1.5 text-gray-600 hover:text-blue-600 transition-colors duration-300 bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-sm"
+                                    className="flex items-center gap-1 text-blue-600 dark:text-gray-300 hover:text-white-400 dark:hover:text-white-400 transition-colors duration-300"
                                 >
-                                    <span className="text-base">{languages.find(l => l.code === selectedLanguage)?.flag}</span>
-                                    <span className="font-medium">{languages.find(l => l.code === selectedLanguage)?.name}</span>
+                                    <IoLanguage size={14} />
+                                    <span className="font-medium">{currentTexts.language}</span>
                                     <svg
-                                        className={`w-4 h-4 ml-1 transition-transform duration-200 ${languageDropdownOpen ? 'rotate-180' : ''}`}
+                                        className={`w-3 h-3 ml-1 transition-transform duration-200 ${languageDropdownOpen ? 'rotate-180' : ''}`}
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
@@ -163,23 +161,21 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
 
                                 {/* Language Dropdown Menu */}
                                 {languageDropdownOpen && (
-                                    <div className="absolute right-0 mt-2 w-48 bg-white shadow-xl border border-gray-200 rounded-lg z-50">
+                                    <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-2xl border border-gray-200 dark:border-blue-700 rounded-lg z-50 max-h-80 overflow-y-auto">
                                         <div className="py-2">
                                             {languages.map((lang) => (
                                                 <button
                                                     key={lang.code}
                                                     onClick={() => handleLanguageSelect(lang.code)}
-                                                    className={`flex items-center justify-between gap-3 w-full px-4 py-3 text-sm text-left transition-colors duration-200 ${selectedLanguage === lang.code
-                                                            ? 'bg-blue-50 text-blue-600'
-                                                            : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                                                    className={`flex items-center gap-3 w-full px-4 py-2 text-sm text-left transition-colors duration-200 ${language === lang.code
+                                                        ? 'bg-red-50 dark:bg-red-900/20 text-blue-800'
+                                                        : 'text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-red-900/10 hover:text-blue-400'
                                                         }`}
                                                 >
-                                                    <div className="flex items-center gap-3">
-                                                        <span className="text-lg">{lang.flag}</span>
-                                                        <span className="font-medium">{lang.name}</span>
-                                                    </div>
-                                                    {selectedLanguage === lang.code && (
-                                                        <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <span className="text-base">{lang.flag}</span>
+                                                    <span>{lang.name}</span>
+                                                    {language === lang.code && (
+                                                        <svg className="w-4 h-4 ml-auto text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                                                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                                         </svg>
                                                     )}
@@ -190,16 +186,16 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                                 )}
                             </div>
 
-                            <NavLink to="/login" className="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium hover:underline">
+                            <NavLink to="/mypanel" className="text-gray-600 dark:text-gray-300 hover:text-red-400 dark:hover:text-red-400 transition-colors duration-300">
                                 {currentTexts.login}
                             </NavLink>
                         </div>
                     </div>
 
                     {/* Main Navigation */}
-                    <div className="relative flex h-20 items-center justify-between">
+                    <div className="relative px-8 flex h-20 items-center justify-between">
                         {/* Logo */}
-                        <div className="flex flex-1 items-center justify-start">
+                        <div className="flex pb-3 flex-1 items-center justify-start">
                             <NavLink to="/" className="flex items-center gap-3 group">
                                 <div className="flex shrink-0 items-center">
                                     <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-100 to-white border border-blue-200 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
@@ -217,9 +213,9 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                         <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center">
                             <div className="flex space-x-2 flex-nowrap whitespace-nowrap">
                                 {/* Home */}
-                                <NavLink to="/" className={({ isActive }) => 
-                                    `flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${isActive 
-                                        ? 'text-blue-600 bg-blue-50 border border-blue-200' 
+                                <NavLink to="/" className={({ isActive }) =>
+                                    `flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${isActive
+                                        ? 'text-blue-600 bg-blue-50 border border-blue-200'
                                         : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/50'}`
                                 }>
                                     {currentTexts.home}
@@ -230,8 +226,8 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                                     <button
                                         onClick={toggleFeaturesDropdown}
                                         className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${featuresDropdownOpen
-                                                ? 'text-blue-600 bg-blue-50 border border-blue-200' 
-                                                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/50'}`}
+                                            ? 'text-blue-600 bg-blue-50 border border-blue-200'
+                                            : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/50'}`}
                                     >
                                         <IoBookOutline size={16} className="mr-1" />
                                         {currentTexts.features}
@@ -290,8 +286,8 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                                     <button
                                         onClick={toggleSolutionsDropdown}
                                         className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${solutionsDropdownOpen
-                                                ? 'text-blue-600 bg-blue-50 border border-blue-200' 
-                                                : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/50'}`}
+                                            ? 'text-blue-600 bg-blue-50 border border-blue-200'
+                                            : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/50'}`}
                                     >
                                         <IoBusinessOutline size={16} className="mr-1" />
                                         {currentTexts.solutions}
@@ -350,27 +346,27 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                                 </div>
 
                                 {/* Pricing */}
-                                <NavLink to="/pricing" className={({ isActive }) => 
-                                    `flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${isActive 
-                                        ? 'text-blue-600 bg-blue-50 border border-blue-200' 
+                                <NavLink to="/pricing" className={({ isActive }) =>
+                                    `flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${isActive
+                                        ? 'text-blue-600 bg-blue-50 border border-blue-200'
                                         : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/50'}`
                                 }>
                                     {currentTexts.pricing}
                                 </NavLink>
 
                                 {/* About */}
-                                <NavLink to="/about" className={({ isActive }) => 
-                                    `flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${isActive 
-                                        ? 'text-blue-600 bg-blue-50 border border-blue-200' 
+                                <NavLink to="/about" className={({ isActive }) =>
+                                    `flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${isActive
+                                        ? 'text-blue-600 bg-blue-50 border border-blue-200'
                                         : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/50'}`
                                 }>
                                     {currentTexts.about}
                                 </NavLink>
 
                                 {/* Contact */}
-                                <NavLink to="/contact" className={({ isActive }) => 
-                                    `flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${isActive 
-                                        ? 'text-blue-600 bg-blue-50 border border-blue-200' 
+                                <NavLink to="/contact" className={({ isActive }) =>
+                                    `flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${isActive
+                                        ? 'text-blue-600 bg-blue-50 border border-blue-200'
                                         : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/50'}`
                                 }>
                                     {currentTexts.contact}
@@ -383,7 +379,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                             {/* Demo Button */}
                             <div className="hidden md:flex">
                                 <button
-                                    onClick={() => navigate('/demo')}
+                                    onClick={() => navigate('/student/dashboard')}
                                     className='flex items-center gap-2 rounded-lg border border-blue-300 px-4 py-2.5 text-sm font-medium text-blue-600 hover:bg-blue-50 hover:border-blue-400 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all duration-300'
                                 >
                                     <span className="text-sm">🎯</span>
@@ -435,9 +431,9 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                             <NavLink
                                 to="/"
                                 onClick={() => setMenuOpen(false)}
-                                className={({ isActive }) => 
-                                    `block px-4 py-3 text-base font-medium rounded-lg transition-colors duration-300 ${isActive 
-                                        ? 'text-blue-600 bg-blue-50' 
+                                className={({ isActive }) =>
+                                    `block px-4 py-3 text-base font-medium rounded-lg transition-colors duration-300 ${isActive
+                                        ? 'text-blue-600 bg-blue-50'
                                         : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'}`
                                 }
                             >
@@ -456,8 +452,8 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                                                 setMenuOpen(false);
                                             }}
                                             className={`flex items-center justify-center gap-2 px-3 py-3 text-sm rounded-lg transition-colors duration-200 ${selectedLanguage === lang.code
-                                                    ? 'bg-blue-100 text-blue-600 border border-blue-200'
-                                                    : 'bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border border-gray-200'
+                                                ? 'bg-blue-100 text-blue-600 border border-blue-200'
+                                                : 'bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border border-gray-200'
                                                 }`}
                                         >
                                             <span className="text-lg">{lang.flag}</span>
@@ -531,9 +527,9 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                                     key={item}
                                     to={`/${item}`}
                                     onClick={() => setMenuOpen(false)}
-                                    className={({ isActive }) => 
-                                        `block px-4 py-3 text-base font-medium rounded-lg transition-colors duration-300 ${isActive 
-                                            ? 'text-blue-600 bg-blue-50' 
+                                    className={({ isActive }) =>
+                                        `block px-4 py-3 text-base font-medium rounded-lg transition-colors duration-300 ${isActive
+                                            ? 'text-blue-600 bg-blue-50'
                                             : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'}`
                                     }
                                 >
@@ -550,7 +546,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                                     <span className="text-sm">🎯</span>
                                     {currentTexts.demo}
                                 </button>
-                                
+
                                 <button
                                     onClick={() => { handleRedirect(); setMenuOpen(false); }}
                                     className='w-full flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3 text-base font-medium text-white hover:from-blue-600 hover:to-blue-700 transition-colors duration-300'
