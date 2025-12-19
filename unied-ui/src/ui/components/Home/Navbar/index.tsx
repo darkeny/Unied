@@ -78,25 +78,25 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
         {
             category: 'Educação Básica',
             items: [
-                { icon: '👶', name: 'Educação Infantil', description: 'Creches e berçários', color: 'from-pink-400 to-pink-500', link: '/solutions/kindergarten' },
-                { icon: '🏫', name: 'Ensino Fundamental', description: '1º ao 9º ano', color: 'from-blue-400 to-blue-500', link: '/solutions/elementary' },
-                { icon: '🎓', name: 'Ensino Médio', description: 'Colegial e preparatório', color: 'from-purple-400 to-purple-500', link: '/solutions/high-school' },
+                { icon: '👶', name: 'Educação Infantil', description: 'Creches e berçários', link: '/solutions/kindergarten' },
+                { icon: '🏫', name: 'Ensino Fundamental', description: '1º ao 9º ano', link: '/solutions/elementary' },
+                { icon: '🎓', name: 'Ensino Médio', description: 'Colegial e preparatório', link: '/solutions/high-school' },
             ]
         },
         {
             category: 'Ensino Especializado',
             items: [
-                { icon: '👨‍🏫', name: 'Escolas de Idiomas', description: 'Cursos de línguas', color: 'from-green-400 to-green-500', link: '/solutions/language' },
-                { icon: '🔧', name: 'Cursos Técnicos', description: 'Formação profissional', color: 'from-orange-400 to-orange-500', link: '/solutions/technical' },
-                { icon: '💻', name: 'Cursos Online', description: 'EAD e ensino à distância', color: 'from-cyan-400 to-cyan-500', link: '/solutions/online' },
+                { icon: '👨‍🏫', name: 'Escolas de Idiomas', description: 'Cursos de línguas', link: '/solutions/language' },
+                { icon: '🔧', name: 'Cursos Técnicos', description: 'Formação profissional', link: '/solutions/technical' },
+                { icon: '💻', name: 'Cursos Online', description: 'EAD e ensino à distância', link: '/solutions/online' },
             ]
         },
         {
             category: 'Rede e Gestão',
             items: [
-                { icon: '🏛️', name: 'Redes de Ensino', description: 'Múltiplas unidades', color: 'from-indigo-400 to-indigo-500', link: '/solutions/network' },
-                { icon: '📚', name: 'Ensino Público', description: 'Gestão municipal/estadual', color: 'from-teal-400 to-teal-500', link: '/solutions/public' },
-                { icon: '💼', name: 'Escolas Particulares', description: 'Instituições privadas', color: 'from-red-400 to-red-500', link: '/solutions/private' },
+                { icon: '🏛️', name: 'Redes de Ensino', description: 'Múltiplas unidades', link: '/solutions/network' },
+                { icon: '📚', name: 'Ensino Público', description: 'Gestão municipal/estadual', link: '/solutions/public' },
+                { icon: '💼', name: 'Escolas Particulares', description: 'Instituições privadas', link: '/solutions/private' },
             ]
         }
     ];
@@ -286,10 +286,10 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                                     <button
                                         onClick={toggleSolutionsDropdown}
                                         className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${solutionsDropdownOpen
-                                            ? 'text-blue-600 bg-blue-50 border border-blue-200'
-                                            : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50/50'}`}
+                                            ? 'text-blue-600 bg-blue-50/80 border border-blue-100'
+                                            : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50/50'}`}
                                     >
-                                        <IoBusinessOutline size={16} className="mr-1" />
+                                        <IoBusinessOutline size={16} className="mr-1 opacity-80" />
                                         {currentTexts.solutions}
                                         <svg
                                             className={`w-4 h-4 ml-1 transition-transform duration-200 ${solutionsDropdownOpen ? 'rotate-180' : ''}`}
@@ -301,36 +301,34 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                                         </svg>
                                     </button>
 
-                                    {/* Solutions Dropdown Menu - AGRANDADO */}
+                                    {/* Solutions Dropdown Menu - MINIMALISTA */}
                                     {solutionsDropdownOpen && (
-                                        <div className="absolute left-0 mt-2 w-[800px] bg-white shadow-2xl border border-gray-200 rounded-lg z-50 overflow-hidden">
+                                        <div className="absolute left-0 mt-2 w-[720px] bg-white shadow-xl border border-gray-100 rounded-lg z-50 overflow-hidden backdrop-blur-sm bg-white/95">
                                             <div className="p-6">
-                                                <div className="grid grid-cols-3 gap-6">
+                                                <div className="grid grid-cols-3 gap-8">
                                                     {solutions.map((category, index) => (
                                                         <div key={index} className="space-y-4">
-                                                            <h3 className="font-semibold text-gray-900 text-sm uppercase tracking-wider text-blue-600 border-b border-blue-100 pb-2">
+                                                            <h3 className="font-semibold text-gray-700 text-sm uppercase tracking-wider text-blue-600/80 border-b border-gray-100 pb-2">
                                                                 {category.category}
                                                             </h3>
-                                                            <div className="space-y-4">
+                                                            <div className="space-y-3">
                                                                 {category.items.map((item, itemIndex) => (
                                                                     <NavLink
                                                                         key={itemIndex}
                                                                         to={item.link}
                                                                         onClick={() => setSolutionsDropdownOpen(false)}
-                                                                        className="block group"
+                                                                        className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50/80 transition-all duration-200 group border border-transparent hover:border-gray-200"
                                                                     >
-                                                                        <div className="flex flex-col p-4 rounded-lg border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all duration-200 bg-gradient-to-br from-gray-50 to-white group-hover:from-white group-hover:to-blue-50">
-                                                                            <div className="flex items-center gap-3 mb-3">
-                                                                                <div className={`h-10 w-10 rounded-lg bg-gradient-to-r ${item.color} flex items-center justify-center text-white`}>
-                                                                                    <span className="text-lg">{item.icon}</span>
-                                                                                </div>
-                                                                                <div className="flex-1">
-                                                                                    <div className="font-semibold text-gray-900 group-hover:text-blue-600">
-                                                                                        {item.name}
-                                                                                    </div>
-                                                                                </div>
+                                                                        <div className="flex-shrink-0">
+                                                                            <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center text-gray-600 group-hover:text-blue-500 transition-colors duration-200 border border-gray-200/50">
+                                                                                <span className="text-lg">{item.icon}</span>
                                                                             </div>
-                                                                            <div className="text-xs text-gray-600 leading-relaxed">
+                                                                        </div>
+                                                                        <div className="flex-1 min-w-0">
+                                                                            <div className="font-medium text-gray-800 group-hover:text-blue-600 text-sm mb-1">
+                                                                                {item.name}
+                                                                            </div>
+                                                                            <div className="text-xs text-gray-500 leading-relaxed">
                                                                                 {item.description}
                                                                             </div>
                                                                         </div>
@@ -339,6 +337,20 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                                                             </div>
                                                         </div>
                                                     ))}
+                                                </div>
+                                                
+                                                {/* Footer opcional com link para ver todas as soluções */}
+                                                <div className="mt-6 pt-6 border-t border-gray-100 text-center">
+                                                    <NavLink
+                                                        to="/solutions"
+                                                        onClick={() => setSolutionsDropdownOpen(false)}
+                                                        className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium"
+                                                    >
+                                                        <span>Ver todas as soluções</span>
+                                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                        </svg>
+                                                    </NavLink>
                                                 </div>
                                             </div>
                                         </div>
@@ -508,8 +520,8 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                                                         onClick={() => setMenuOpen(false)}
                                                         className="flex flex-col items-center p-3 text-sm text-gray-700 bg-gray-50 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 text-center"
                                                     >
-                                                        <div className={`h-8 w-8 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center text-white mb-2`}>
-                                                            <span className="text-sm">{item.icon}</span>
+                                                        <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center text-gray-600 mb-2 border border-gray-200/50">
+                                                            <span className="text-lg">{item.icon}</span>
                                                         </div>
                                                         <div className="font-medium text-xs">{item.name}</div>
                                                         <div className="text-xs text-gray-500 mt-1">{item.description}</div>
