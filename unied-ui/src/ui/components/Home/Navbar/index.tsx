@@ -552,7 +552,7 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                             {/* Mobile CTA Buttons */}
                             <div className="px-4 py-4 border-t border-blue-100 space-y-3">
                                 <button
-                                    onClick={() => { navigate('/demo'); setMenuOpen(false); }}
+                                    onClick={() => { navigate('/student/dashboard'); setMenuOpen(false); }}
                                     className='w-full flex items-center justify-center gap-2 rounded-lg border border-blue-300 px-4 py-3 text-base font-medium text-blue-600 hover:bg-blue-50 transition-colors duration-300'
                                 >
                                     <span className="text-sm">🎯</span>
