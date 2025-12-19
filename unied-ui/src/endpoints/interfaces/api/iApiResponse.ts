@@ -4,5 +4,5 @@ export interface IApiResponse<T> {
   status: number;
   message: string;
   isError: boolean;
-  data: PaginatedResponse<T>;
+  data: PaginatedResponse<T> | T;
 }

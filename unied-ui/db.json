@@ -1,7 +1,7 @@
 {
   "students": [
     {
-      "id": 1,
+      "id": "1",
       "student_number": "STU001",
       "full_name": "John Doe",
       "birth_date": "2005-05-15",
@@ -16,7 +16,7 @@
       "photo": null
     },
     {
-      "id": 2,
+      "id": "2",
       "student_number": "STU002",
       "full_name": "Alice Smith",
       "birth_date": "2006-08-22",
@@ -31,7 +31,7 @@
       "photo": null
     },
     {
-      "id": 3,
+      "id": "3",
       "student_number": "STU003",
       "full_name": "Michael Johnson",
       "birth_date": "2005-11-02",
@@ -46,7 +46,7 @@
       "photo": null
     },
     {
-      "id": 4,
+      "id": "4",
       "student_number": "STU004",
       "full_name": "Emily Davis",
       "birth_date": "2006-02-18",
@@ -61,7 +61,7 @@
       "photo": null
     },
     {
-      "id": 5,
+      "id": "5",
       "student_number": "STU005",
       "full_name": "Daniel Wilson",
       "birth_date": "2005-07-12",
@@ -74,11 +74,26 @@
       "registration_date": "2025-01-20",
       "status": "active",
       "photo": null
+    },
+    {
+      "id": 0,
+      "student_number": "23456",
+      "full_name": "Adriano Dimande",
+      "birth_date": "2025-12-19T15:25:17.358Z",
+      "gender": "Masculino",
+      "email": "Adriano Luis Dimande",
+      "phone": "847654321",
+      "address": "Av. 24 de Julho",
+      "guardian_name": "Luis Dimande",
+      "guardian_phone": "847654321",
+      "registration_date": "2025-12-19T15:25:17.358Z",
+      "status": "Activo",
+      "photo": "imagem"
     }
   ],
   "teachers": [
     {
-      "id": 1,
+      "id": "1",
       "employee_number": "EMP001",
       "full_name": "Mr. Michael Brown",
       "specialty": "Mathematics",
@@ -89,7 +104,7 @@
       "education": "MSc Mathematics"
     },
     {
-      "id": 2,
+      "id": "2",
       "employee_number": "EMP002",
       "full_name": "Mrs. Laura Green",
       "specialty": "English",
@@ -100,7 +115,7 @@
       "education": "BA English"
     },
     {
-      "id": 3,
+      "id": "3",
       "employee_number": "EMP003",
       "full_name": "Mr. Robert White",
       "specialty": "Physics",
@@ -111,7 +126,7 @@
       "education": "MSc Physics"
     },
     {
-      "id": 4,
+      "id": "4",
       "employee_number": "EMP004",
       "full_name": "Mrs. Susan Black",
       "specialty": "Chemistry",
@@ -122,7 +137,7 @@
       "education": "MSc Chemistry"
     },
     {
-      "id": 5,
+      "id": "5",
       "employee_number": "EMP005",
       "full_name": "Mr. David Lee",
       "specialty": "Biology",
@@ -135,7 +150,7 @@
   ],
   "classes": [
     {
-      "id": 1,
+      "id": "1",
       "class_code": "CLS001",
       "class_name": "Grade 10 - A",
       "academic_year": "2025",
@@ -146,7 +161,7 @@
       "status": "active"
     },
     {
-      "id": 2,
+      "id": "2",
       "class_code": "CLS002",
       "class_name": "Grade 10 - B",
       "academic_year": "2025",
@@ -157,7 +172,7 @@
       "status": "active"
     },
     {
-      "id": 3,
+      "id": "3",
       "class_code": "CLS003",
       "class_name": "Grade 11 - A",
       "academic_year": "2025",
@@ -168,7 +183,7 @@
       "status": "active"
     },
     {
-      "id": 4,
+      "id": "4",
       "class_code": "CLS004",
       "class_name": "Grade 11 - B",
       "academic_year": "2025",
@@ -179,7 +194,7 @@
       "status": "active"
     },
     {
-      "id": 5,
+      "id": "5",
       "class_code": "CLS005",
       "class_name": "Grade 12 - A",
       "academic_year": "2025",
@@ -191,38 +206,278 @@
     }
   ],
   "classTeachers": [
-    { "id": 1, "class_id": 1, "teacher_id": 1, "subject": "Mathematics", "hours": 5 },
-    { "id": 2, "class_id": 2, "teacher_id": 2, "subject": "English", "hours": 4 },
-    { "id": 3, "class_id": 3, "teacher_id": 3, "subject": "Physics", "hours": 5 },
-    { "id": 4, "class_id": 4, "teacher_id": 4, "subject": "Chemistry", "hours": 4 },
-    { "id": 5, "class_id": 5, "teacher_id": 5, "subject": "Biology", "hours": 5 }
+    {
+      "id": "1",
+      "class_id": 1,
+      "teacher_id": 1,
+      "subject": "Mathematics",
+      "hours": 5
+    },
+    {
+      "id": "2",
+      "class_id": 2,
+      "teacher_id": 2,
+      "subject": "English",
+      "hours": 4
+    },
+    {
+      "id": "3",
+      "class_id": 3,
+      "teacher_id": 3,
+      "subject": "Physics",
+      "hours": 5
+    },
+    {
+      "id": "4",
+      "class_id": 4,
+      "teacher_id": 4,
+      "subject": "Chemistry",
+      "hours": 4
+    },
+    {
+      "id": "5",
+      "class_id": 5,
+      "teacher_id": 5,
+      "subject": "Biology",
+      "hours": 5
+    }
   ],
   "enrollments": [
-    { "id": 1, "student_id": 1, "class_id": 1, "enrollment_date": "2025-02-01", "academic_year": "2025", "enrollment_type": "Regular", "amount_paid": 200, "status": "active", "documents": null },
-    { "id": 2, "student_id": 2, "class_id": 2, "enrollment_date": "2025-02-02", "academic_year": "2025", "enrollment_type": "Regular", "amount_paid": 200, "status": "active", "documents": null },
-    { "id": 3, "student_id": 3, "class_id": 3, "enrollment_date": "2025-02-03", "academic_year": "2025", "enrollment_type": "Regular", "amount_paid": 200, "status": "active", "documents": null },
-    { "id": 4, "student_id": 4, "class_id": 4, "enrollment_date": "2025-02-04", "academic_year": "2025", "enrollment_type": "Regular", "amount_paid": 200, "status": "active", "documents": null },
-    { "id": 5, "student_id": 5, "class_id": 5, "enrollment_date": "2025-02-05", "academic_year": "2025", "enrollment_type": "Regular", "amount_paid": 200, "status": "active", "documents": null }
+    {
+      "id": "1",
+      "student_id": 1,
+      "class_id": 1,
+      "enrollment_date": "2025-02-01",
+      "academic_year": "2025",
+      "enrollment_type": "Regular",
+      "amount_paid": 200,
+      "status": "active",
+      "documents": null
+    },
+    {
+      "id": "2",
+      "student_id": 2,
+      "class_id": 2,
+      "enrollment_date": "2025-02-02",
+      "academic_year": "2025",
+      "enrollment_type": "Regular",
+      "amount_paid": 200,
+      "status": "active",
+      "documents": null
+    },
+    {
+      "id": "3",
+      "student_id": 3,
+      "class_id": 3,
+      "enrollment_date": "2025-02-03",
+      "academic_year": "2025",
+      "enrollment_type": "Regular",
+      "amount_paid": 200,
+      "status": "active",
+      "documents": null
+    },
+    {
+      "id": "4",
+      "student_id": 4,
+      "class_id": 4,
+      "enrollment_date": "2025-02-04",
+      "academic_year": "2025",
+      "enrollment_type": "Regular",
+      "amount_paid": 200,
+      "status": "active",
+      "documents": null
+    },
+    {
+      "id": "5",
+      "student_id": 5,
+      "class_id": 5,
+      "enrollment_date": "2025-02-05",
+      "academic_year": "2025",
+      "enrollment_type": "Regular",
+      "amount_paid": 200,
+      "status": "active",
+      "documents": null
+    }
   ],
   "attendances": [
-    { "id": 1, "student_id": 1, "class_id": 1, "lesson_date": "2025-12-18", "check_in_time": "08:00", "check_out_time": "12:00", "attendance_status": "present", "notes": null, "teacher_id": 1 },
-    { "id": 2, "student_id": 2, "class_id": 2, "lesson_date": "2025-12-18", "check_in_time": "13:00", "check_out_time": "17:00", "attendance_status": "present", "notes": null, "teacher_id": 2 },
-    { "id": 3, "student_id": 3, "class_id": 3, "lesson_date": "2025-12-18", "check_in_time": "08:00", "check_out_time": "12:00", "attendance_status": "present", "notes": null, "teacher_id": 3 },
-    { "id": 4, "student_id": 4, "class_id": 4, "lesson_date": "2025-12-18", "check_in_time": "13:00", "check_out_time": "17:00", "attendance_status": "present", "notes": null, "teacher_id": 4 },
-    { "id": 5, "student_id": 5, "class_id": 5, "lesson_date": "2025-12-18", "check_in_time": "08:00", "check_out_time": "12:00", "attendance_status": "present", "notes": null, "teacher_id": 5 }
+    {
+      "id": "1",
+      "student_id": 1,
+      "class_id": 1,
+      "lesson_date": "2025-12-18",
+      "check_in_time": "08:00",
+      "check_out_time": "12:00",
+      "attendance_status": "present",
+      "notes": null,
+      "teacher_id": 1
+    },
+    {
+      "id": "2",
+      "student_id": 2,
+      "class_id": 2,
+      "lesson_date": "2025-12-18",
+      "check_in_time": "13:00",
+      "check_out_time": "17:00",
+      "attendance_status": "present",
+      "notes": null,
+      "teacher_id": 2
+    },
+    {
+      "id": "3",
+      "student_id": 3,
+      "class_id": 3,
+      "lesson_date": "2025-12-18",
+      "check_in_time": "08:00",
+      "check_out_time": "12:00",
+      "attendance_status": "present",
+      "notes": null,
+      "teacher_id": 3
+    },
+    {
+      "id": "4",
+      "student_id": 4,
+      "class_id": 4,
+      "lesson_date": "2025-12-18",
+      "check_in_time": "13:00",
+      "check_out_time": "17:00",
+      "attendance_status": "present",
+      "notes": null,
+      "teacher_id": 4
+    },
+    {
+      "id": "5",
+      "student_id": 5,
+      "class_id": 5,
+      "lesson_date": "2025-12-18",
+      "check_in_time": "08:00",
+      "check_out_time": "12:00",
+      "attendance_status": "present",
+      "notes": null,
+      "teacher_id": 5
+    }
   ],
   "grades": [
-    { "id": 1, "student_id": 1, "class_id": 1, "subject": "Mathematics", "period": "Term 1", "assessment_type": "Exam", "grade_value": 85, "date_recorded": "2025-06-10", "teacher_id": 1, "notes": null },
-    { "id": 2, "student_id": 2, "class_id": 2, "subject": "English", "period": "Term 1", "assessment_type": "Exam", "grade_value": 90, "date_recorded": "2025-06-10", "teacher_id": 2, "notes": null },
-    { "id": 3, "student_id": 3, "class_id": 3, "subject": "Physics", "period": "Term 1", "assessment_type": "Exam", "grade_value": 88, "date_recorded": "2025-06-10", "teacher_id": 3, "notes": null },
-    { "id": 4, "student_id": 4, "class_id": 4, "subject": "Chemistry", "period": "Term 1", "assessment_type": "Exam", "grade_value": 92, "date_recorded": "2025-06-10", "teacher_id": 4, "notes": null },
-    { "id": 5, "student_id": 5, "class_id": 5, "subject": "Biology", "period": "Term 1", "assessment_type": "Exam", "grade_value": 87, "date_recorded": "2025-06-10", "teacher_id": 5, "notes": null }
+    {
+      "id": "1",
+      "student_id": 1,
+      "class_id": 1,
+      "subject": "Mathematics",
+      "period": "Term 1",
+      "assessment_type": "Exam",
+      "grade_value": 85,
+      "date_recorded": "2025-06-10",
+      "teacher_id": 1,
+      "notes": null
+    },
+    {
+      "id": "2",
+      "student_id": 2,
+      "class_id": 2,
+      "subject": "English",
+      "period": "Term 1",
+      "assessment_type": "Exam",
+      "grade_value": 90,
+      "date_recorded": "2025-06-10",
+      "teacher_id": 2,
+      "notes": null
+    },
+    {
+      "id": "3",
+      "student_id": 3,
+      "class_id": 3,
+      "subject": "Physics",
+      "period": "Term 1",
+      "assessment_type": "Exam",
+      "grade_value": 88,
+      "date_recorded": "2025-06-10",
+      "teacher_id": 3,
+      "notes": null
+    },
+    {
+      "id": "4",
+      "student_id": 4,
+      "class_id": 4,
+      "subject": "Chemistry",
+      "period": "Term 1",
+      "assessment_type": "Exam",
+      "grade_value": 92,
+      "date_recorded": "2025-06-10",
+      "teacher_id": 4,
+      "notes": null
+    },
+    {
+      "id": "5",
+      "student_id": 5,
+      "class_id": 5,
+      "subject": "Biology",
+      "period": "Term 1",
+      "assessment_type": "Exam",
+      "grade_value": 87,
+      "date_recorded": "2025-06-10",
+      "teacher_id": 5,
+      "notes": null
+    }
   ],
   "certificates": [
-    { "id": 1, "student_id": 1, "certificate_type": "Enrollment Confirmation", "issue_date": "2025-02-05", "expiry_date": null, "reason": null, "copy_number": "001", "pdf_document": null, "status": "active", "signed_by": "Principal" },
-    { "id": 2, "student_id": 2, "certificate_type": "Enrollment Confirmation", "issue_date": "2025-02-06", "expiry_date": null, "reason": null, "copy_number": "002", "pdf_document": null, "status": "active", "signed_by": "Principal" },
-    { "id": 3, "student_id": 3, "certificate_type": "Enrollment Confirmation", "issue_date": "2025-02-07", "expiry_date": null, "reason": null, "copy_number": "003", "pdf_document": null, "status": "active", "signed_by": "Principal" },
-    { "id": 4, "student_id": 4, "certificate_type": "Enrollment Confirmation", "issue_date": "2025-02-08", "expiry_date": null, "reason": null, "copy_number": "004", "pdf_document": null, "status": "active", "signed_by": "Principal" },
-    { "id": 5, "student_id": 5, "certificate_type": "Enrollment Confirmation", "issue_date": "2025-02-09", "expiry_date": null, "reason": null, "copy_number": "005", "pdf_document": null, "status": "active", "signed_by": "Principal" }
+    {
+      "id": "1",
+      "student_id": 1,
+      "certificate_type": "Enrollment Confirmation",
+      "issue_date": "2025-02-05",
+      "expiry_date": null,
+      "reason": null,
+      "copy_number": "001",
+      "pdf_document": null,
+      "status": "active",
+      "signed_by": "Principal"
+    },
+    {
+      "id": "2",
+      "student_id": 2,
+      "certificate_type": "Enrollment Confirmation",
+      "issue_date": "2025-02-06",
+      "expiry_date": null,
+      "reason": null,
+      "copy_number": "002",
+      "pdf_document": null,
+      "status": "active",
+      "signed_by": "Principal"
+    },
+    {
+      "id": "3",
+      "student_id": 3,
+      "certificate_type": "Enrollment Confirmation",
+      "issue_date": "2025-02-07",
+      "expiry_date": null,
+      "reason": null,
+      "copy_number": "003",
+      "pdf_document": null,
+      "status": "active",
+      "signed_by": "Principal"
+    },
+    {
+      "id": "4",
+      "student_id": 4,
+      "certificate_type": "Enrollment Confirmation",
+      "issue_date": "2025-02-08",
+      "expiry_date": null,
+      "reason": null,
+      "copy_number": "004",
+      "pdf_document": null,
+      "status": "active",
+      "signed_by": "Principal"
+    },
+    {
+      "id": "5",
+      "student_id": 5,
+      "certificate_type": "Enrollment Confirmation",
+      "issue_date": "2025-02-09",
+      "expiry_date": null,
+      "reason": null,
+      "copy_number": "005",
+      "pdf_document": null,
+      "status": "active",
+      "signed_by": "Principal"
+    }
   ]
 }

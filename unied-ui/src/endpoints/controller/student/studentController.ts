@@ -6,7 +6,10 @@ export class StudentController extends StudentRepository {
   data: IApiResponse<StudentModel[]> | null = null;
 
   async getAllStudents() {
-    
-    this.data = await this.readAllStudents();
+    this.data = await this.readAll();
+  }
+
+  async createStudent(student: StudentModel) {
+    this.data = await this.create(student);
   }
 }
