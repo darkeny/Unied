@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
+    "axios": "^1.13.2",
     "dotenv": "^17.2.3",
     "icons": "^1.0.0",
     "json-server": "^1.0.0-beta.3",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@types/axios": "^0.9.36",
     "@types/json-server": "^0.14.8",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
