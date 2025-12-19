@@ -1,4 +1,4 @@
-export interface StudentModel {
+export type StudentModel = {
   id: number;
   student_number: string;
   full_name: string;
