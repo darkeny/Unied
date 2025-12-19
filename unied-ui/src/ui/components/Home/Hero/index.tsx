@@ -84,7 +84,7 @@ export function Hero({ language }: HeroProps) {
                 </NavLink>
 
                 <NavLink
-                  to="/demo"
+                  to="/student/dashboard"
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold text-blue-600 bg-white border-2 border-blue-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
                 >
                   <span className="text-xl">🎬</span>
