@@ -1,7 +1,7 @@
-// components/Home/Navbar/Student.tsx (StudentSidebar atualizado com Pagamentos)
-import React, { useState } from 'react';
+// components/Home/Navbar/Student.tsx (StudentSidebar corrigido para mobile)
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { VscChevronDown, VscChevronRight } from "react-icons/vsc";
+import { VscChevronDown, VscChevronRight, VscMenu, VscClose } from "react-icons/vsc";
 import {
     CiLogout,
     CiUser,
@@ -54,10 +54,16 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
         schedule: false,
         materials: false,
         documents: false,
-        payments: false // Nova seção
+        payments: false
     });
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     const currentTexts = studentTexts[language];
+
+    // Fechar sidebar mobile ao navegar
+    useEffect(() => {
+        setIsMobileOpen(false);
+    }, [location.pathname]);
 
     const handleLogout = () => {
         navigate('/');
@@ -86,7 +92,6 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
         { path: '/student/timetable', icon: IoTimeOutline, label: currentTexts.timetable },
         { path: '/student/attendance', icon: BsClockHistory, label: currentTexts.attendance, badgeValue: '94%' },
         { path: '/student/grades', icon: IoStatsChartOutline, label: currentTexts.grades, badgeValue: '15,8' },
-        { path: '/student/subjects', icon: BsBook, label: currentTexts.subjects },
         { path: '/student/teachers', icon: FaChalkboardTeacher, label: currentTexts.teachers },
     ];
 
@@ -162,12 +167,29 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
             {/* Estilos para scroll fino */}
             <style>{scrollStyles}</style>
 
-            {/* Sidebar - Largura aumentada */}
+            {/* Botão de toggle para mobile (só aparece em telas pequenas) */}
+            <button
+                onClick={() => setIsMobileOpen(!isMobileOpen)}
+                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white/90 backdrop-blur-sm rounded-lg border border-gray-300 shadow-sm"
+            >
+                {isMobileOpen ? <VscClose size={20} /> : <VscMenu size={20} />}
+            </button>
+
+            {/* Overlay para mobile */}
+            {isMobileOpen && (
+                <div 
+                    className="lg:hidden fixed inset-0 bg-black/50 z-40"
+                    onClick={() => setIsMobileOpen(false)}
+                />
+            )}
+
+            {/* Sidebar */}
             <div className={`
                 fixed lg:sticky top-0 left-0 h-screen bg-gradient-to-b from-gray-50/90 via-white to-gray-50/40 
                 border-r border-gray-200 shadow-sm z-50
                 transform transition-all duration-300 ease-in-out
                 ${isCollapsed ? 'w-24' : 'w-82'}
+                ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
                 flex flex-col overflow-hidden
             `}>
 
@@ -175,7 +197,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                 <div className="flex items-center justify-between p-5 border-b border-gray-200">
                     {!isCollapsed && (
                         <div className="flex items-center space-x-3">
-                            <div className="h-10 w-10 rounded-xl bg-linear-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                                 <span className="text-sm font-bold text-white">U</span>
                             </div>
                             <div className="flex flex-col">
@@ -189,7 +211,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
 
                     {isCollapsed && (
                         <div className="flex items-center justify-center w-full">
-                            <div className="h-10 w-10 rounded-xl bg-linear-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                                 <span className="text-sm font-bold text-white">U</span>
                             </div>
                         </div>
@@ -212,7 +234,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                 {!isCollapsed && (
                     <div className="p-5 border-b border-gray-200">
                         <div className="flex items-center space-x-3 mb-4">
-                            <div className="w-12 h-12 bg-linear-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center">
+                            <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center">
                                 <span className="text-white font-semibold text-base">
                                     {studentName.split(' ').map(n => n[0]).join('')}
                                 </span>
@@ -270,7 +292,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                                         {!isCollapsed && <span className="font-medium">{item.label}</span>}
                                     </div>
                                     {!isCollapsed && item.badge && (
-                                        <span className="bg-linear-to-br from-blue-50/80 to-white/90 text-blue-600 text-xs font-semibold px-2.5 py-1 rounded-lg border border-blue-200/40 shadow-[0_1px_2px_rgba(59,130,246,0.05)] backdrop-blur-sm">
+                                        <span className="bg-gradient-to-br from-blue-50/80 to-white/90 text-blue-600 text-xs font-semibold px-2.5 py-1 rounded-lg border border-blue-200/40 shadow-[0_1px_2px_rgba(59,130,246,0.05)] backdrop-blur-sm">
                                             {item.badge}
                                         </span>
                                     )}
@@ -321,7 +343,10 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                                                         <span>{item.label}</span>
                                                     </div>
                                                     {item.badgeValue && (
-                                                        <span className={`text-xs font-medium px-2 py-1 rounded ${item.path === '/student/grades' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
+                                                        <span className={`text-xs font-semibold px-2.5 py-1 rounded-lg border backdrop-blur-sm ${item.path === '/student/grades' 
+                                                            ? 'bg-gradient-to-br from-blue-50/80 to-white/90 text-blue-600 border-blue-200/40' 
+                                                            : 'bg-gradient-to-br from-green-50/80 to-white/90 text-green-600 border-green-200/40'
+                                                        }`}>
                                                             {item.badgeValue}
                                                         </span>
                                                     )}
@@ -500,7 +525,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                                                         <span>{item.label}</span>
                                                     </div>
                                                     {item.badge && (
-                                                        <span className="text-xs font-medium bg-red-100 text-red-700 px-2 py-1 rounded">
+                                                        <span className="text-xs font-semibold px-2.5 py-1 rounded-lg border backdrop-blur-sm bg-gradient-to-br from-red-50/80 to-white/90 text-red-600 border-red-200/40">
                                                             {item.badge}
                                                         </span>
                                                     )}
@@ -563,7 +588,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                                                         <span>{item.label}</span>
                                                     </div>
                                                     {item.badge && (
-                                                        <span className="text-xs font-medium bg-amber-100 text-amber-700 px-2 py-1 rounded">
+                                                        <span className="text-xs font-semibold px-2.5 py-1 rounded-lg border backdrop-blur-sm bg-gradient-to-br from-amber-50/80 to-white/90 text-amber-600 border-amber-200/40">
                                                             {item.badge}
                                                         </span>
                                                     )}
