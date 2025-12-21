@@ -47,7 +47,7 @@ export function Hero({ language }: HeroProps) {
   const currentTexts = texts[language];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50/20">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-blue-50/20">
       <div className="relative overflow-hidden">
         {/* Main Hero Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16  lg:pb-24">
@@ -74,7 +74,7 @@ export function Hero({ language }: HeroProps) {
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
                 <NavLink
                   to="/signup"
-                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl shadow-lg hover:from-blue-700 hover:to-blue-600 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold text-white bg-linear-to-r from-blue-600 to-blue-500 rounded-xl shadow-lg hover:from-blue-700 hover:to-blue-600 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                 >
                   <span className="text-xl">👨‍🎓</span>
                   <span>{currentTexts.ctaPrimary}</span>
@@ -110,7 +110,7 @@ export function Hero({ language }: HeroProps) {
 
             {/* Right Column - Image */}
             <div className="mt-12 lg:mt-0 relative">
-              <div className="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-125 rounded-2xl overflow-hidden shadow-2xl">
                 {/* Main image container */}
                 <div className="absolute inset-0 bg-linear-to-br from-blue-400/20 to-blue-600/20">
                   {/* Decorative elements */}
