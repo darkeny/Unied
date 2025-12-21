@@ -199,11 +199,11 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                             <NavLink to="/" className="flex items-center gap-3 group">
                                 <div className="flex shrink-0 items-center">
                                     <div className="h-12 w-12 rounded-xl bg-linear-to-br from-blue-100 to-white border border-blue-200 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
-                                        <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">U</span>
+                                        <span className="text-2xl font-bold bg-linear-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">U</span>
                                     </div>
                                 </div>
                                 <div className="flex flex-col">
-                                    <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-blue-500 transition-all duration-300">Unied</span>
+                                    <span className="text-2xl font-bold bg-linear-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-blue-500 transition-all duration-300">Unied</span>
                                     <span className="text-xs text-gray-500 font-medium">Sistema de Gestão Educacional</span>
                                 </div>
                             </NavLink>
@@ -243,12 +243,12 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
 
                                     {/* Features Dropdown Menu - AGRANDADO */}
                                     {featuresDropdownOpen && (
-                                        <div className="absolute left-0 mt-2 w-[960px] bg-white shadow-2xl border border-gray-200 rounded-lg z-50 overflow-hidden">
+                                        <div className="absolute left-0 mt-2 w-240 bg-white shadow-2xl border border-gray-200 rounded-lg z-50 overflow-hidden">
                                             <div className="p-6">
                                                 <div className="grid grid-cols-4 gap-6">
                                                     {features.map((category, index) => (
                                                         <div key={index} className="space-y-4">
-                                                            <h3 className="font-semibold text-gray-900 text-sm uppercase tracking-wider text-blue-600 border-b border-blue-100 pb-2">
+                                                            <h3 className="font-semibold text-sm uppercase tracking-wider text-blue-600 border-b border-blue-100 pb-2">
                                                                 {category.category}
                                                             </h3>
                                                             <div className="space-y-3">
@@ -259,7 +259,7 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                                                                         onClick={() => setFeaturesDropdownOpen(false)}
                                                                         className="flex items-start gap-3 p-3 rounded-lg hover:bg-blue-50 transition-all duration-200 group"
                                                                     >
-                                                                        <div className="text-blue-500 mt-0.5 flex-shrink-0">
+                                                                        <div className="text-blue-500 mt-0.5 shrink-0">
                                                                             {item.icon}
                                                                         </div>
                                                                         <div className="flex-1 min-w-0">
@@ -303,12 +303,12 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
 
                                     {/* Solutions Dropdown Menu - MINIMALISTA */}
                                     {solutionsDropdownOpen && (
-                                        <div className="absolute left-0 mt-2 w-[720px] bg-white shadow-xl border border-gray-100 rounded-lg z-50 overflow-hidden backdrop-blur-sm bg-white/95">
+                                        <div className="absolute left-0 mt-2 w-180 bg-white shadow-xl border border-gray-100 rounded-lg z-50 overflow-hidden backdrop-blur-sm">
                                             <div className="p-6">
                                                 <div className="grid grid-cols-3 gap-8">
                                                     {solutions.map((category, index) => (
                                                         <div key={index} className="space-y-4">
-                                                            <h3 className="font-semibold text-gray-700 text-sm uppercase tracking-wider text-blue-600/80 border-b border-gray-100 pb-2">
+                                                            <h3 className="font-semibold text-gray-700 text-sm uppercase tracking-wider border-b border-gray-100 pb-2">
                                                                 {category.category}
                                                             </h3>
                                                             <div className="space-y-3">
@@ -319,7 +319,7 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                                                                         onClick={() => setSolutionsDropdownOpen(false)}
                                                                         className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50/80 transition-all duration-200 group border border-transparent hover:border-gray-200"
                                                                     >
-                                                                        <div className="flex-shrink-0">
+                                                                        <div className="shrink-0">
                                                                             <div className="h-9 w-9 rounded-lg bg-linear-to-br from-gray-100 to-gray-50 flex items-center justify-center text-gray-600 group-hover:text-blue-500 transition-colors duration-200 border border-gray-200/50">
                                                                                 <span className="text-lg">{item.icon}</span>
                                                                             </div>
@@ -403,7 +403,7 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                             <div className="hidden sm:flex">
                                 <button
                                     onClick={handleRedirect}
-                                    className='flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-2.5 text-sm font-medium text-white hover:from-blue-600 hover:to-blue-700 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all duration-300'
+                                    className='flex items-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-4 py-2.5 text-sm font-medium text-white hover:from-blue-600 hover:to-blue-700 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all duration-300'
                                 >
                                     <CiLogin size={16} />
                                     {currentTexts.signup}
@@ -561,7 +561,7 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
 
                                 <button
                                     onClick={() => { handleRedirect(); setMenuOpen(false); }}
-                                    className='w-full flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3 text-base font-medium text-white hover:from-blue-600 hover:to-blue-700 transition-colors duration-300'
+                                    className='w-full flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-blue-500 to-blue-600 px-4 py-3 text-base font-medium text-white hover:from-blue-600 hover:to-blue-700 transition-colors duration-300'
                                 >
                                     <CiLogin size={18} />
                                     {currentTexts.signup}
