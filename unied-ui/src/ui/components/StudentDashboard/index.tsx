@@ -80,7 +80,7 @@ export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
           <div className="flex flex-col md:flex-row md:items-center justify-between">
             <div className="mb-4 md:mb-0">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-50 rounded-full flex items-center justify-center border border-blue-200">
+                <div className="w-12 h-12 bg-linear-to-br from-blue-100 to-blue-50 rounded-full flex items-center justify-center border border-blue-200">
                   <CiUser className="text-blue-600" size={24} />
                 </div>
                 <div>
@@ -94,7 +94,7 @@ export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-lg p-4 border border-gray-300/50">
+            <div className="bg-linear-to-br from-gray-50 to-gray-100/50 rounded-lg p-4 border border-gray-300/50">
               <div className="flex items-center space-x-3">
                 <CiCalendar className="text-gray-700" size={20} />
                 <div className="text-right">
@@ -121,8 +121,8 @@ export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
         <h3 className="text-lg font-semibold text-gray-800 mb-6">Visão Geral</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {/* Inscrição */}
-          <div className="bg-gradient-to-br from-blue-50/80 to-white rounded-xl p-4 border border-blue-100/50 shadow-sm hover:shadow transition-shadow">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-100 to-white rounded-xl mb-3 border border-blue-200/30">
+          <div className="bg-linear-to-br from-blue-50/80 to-white rounded-xl p-4 border border-blue-100/50 shadow-sm hover:shadow transition-shadow">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-linear-to-br from-blue-100 to-white rounded-xl mb-3 border border-blue-200/30">
               <CiEdit className="text-blue-600" size={20} />
             </div>
             <p className="text-sm text-gray-700 mb-2 font-medium">Inscrição</p>
@@ -133,8 +133,8 @@ export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
           </div>
 
           {/* Notificações */}
-          <div className="bg-gradient-to-br from-amber-50/80 to-white rounded-xl p-4 border border-amber-100/50 shadow-sm hover:shadow transition-shadow">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-amber-100 to-white rounded-xl mb-3 border border-amber-200/30 relative">
+          <div className="bg-linear-to-br from-amber-50/80 to-white rounded-xl p-4 border border-amber-100/50 shadow-sm hover:shadow transition-shadow">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-linear-to-br from-amber-100 to-white rounded-xl mb-3 border border-amber-200/30 relative">
               <CiBellOn className="text-amber-600" size={20} />
               {dashboardData.notifications.unread > 0 && (
                 <span className="absolute -top-1 -right-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center border-2 border-white shadow-sm">
@@ -150,8 +150,8 @@ export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
           </div>
 
           {/* Regulamento */}
-          <div className="bg-gradient-to-br from-purple-50/80 to-white rounded-xl p-4 border border-purple-100/50 shadow-sm hover:shadow transition-shadow">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-purple-100 to-white rounded-xl mb-3 border border-purple-200/30">
+          <div className="bg-linear-to-br from-purple-50/80 to-white rounded-xl p-4 border border-purple-100/50 shadow-sm hover:shadow transition-shadow">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-linear-to-br from-purple-100 to-white rounded-xl mb-3 border border-purple-200/30">
               <IoDocumentText className="text-purple-600" size={20} />
             </div>
             <p className="text-sm text-gray-700 mb-2 font-medium">Regulamento</p>
@@ -161,8 +161,8 @@ export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
           </div>
 
           {/* Matrículas */}
-          <div className="bg-gradient-to-br from-indigo-50/80 to-white rounded-xl p-4 border border-indigo-100/50 shadow-sm hover:shadow transition-shadow">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-100 to-white rounded-xl mb-3 border border-indigo-200/30">
+          <div className="bg-linear-to-br from-indigo-50/80 to-white rounded-xl p-4 border border-indigo-100/50 shadow-sm hover:shadow transition-shadow">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-linear-to-br from-indigo-100 to-white rounded-xl mb-3 border border-indigo-200/30">
               <CiUser className="text-indigo-600" size={20} />
             </div>
             <p className="text-sm text-gray-700 mb-2 font-medium">Matrículas</p>
@@ -181,7 +181,7 @@ export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
         <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-gray-200/70 p-6 shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-start justify-between mb-6">
             <div className="flex items-center space-x-3">
-              <div className="p-3 bg-gradient-to-br from-amber-50 to-amber-100/30 rounded-lg border border-amber-200/50">
+              <div className="p-3 bg-linear-to-br from-amber-50 to-amber-100/30 rounded-lg border border-amber-200/50">
                 <CiBellOn className="text-amber-600" size={22} />
               </div>
               <div>
@@ -205,7 +205,7 @@ export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
             {dashboardData.notifications.recent.map((notification) => (
               <div
                 key={notification.id}
-                className={`flex items-start justify-between p-3 rounded-lg border ${!notification.isRead ? 'bg-gradient-to-r from-blue-50/80 to-blue-100/30 border-blue-200/60' : 'bg-gradient-to-br from-gray-50/80 to-white border-gray-200/60'}`}
+                className={`flex items-start justify-between p-3 rounded-lg border ${!notification.isRead ? 'bg-gradient-to-r from-blue-50/80 to-blue-100/30 border-blue-200/60' : 'bg-linear-to-br from-gray-50/80 to-white border-gray-200/60'}`}
               >
                 <div className="flex-1">
                   <div className="flex items-start">
@@ -235,7 +235,7 @@ export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
         <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-gray-200/70 p-6 shadow-sm hover:shadow-md transition-shadow">
           <div className="flex items-start justify-between mb-6">
             <div className="flex items-center space-x-3">
-              <div className="p-3 bg-gradient-to-br from-indigo-50 to-indigo-100/30 rounded-lg border border-indigo-200/50">
+              <div className="p-3 bg-linear-to-br from-indigo-50 to-indigo-100/30 rounded-lg border border-indigo-200/50">
                 <CiUser className="text-indigo-600" size={22} />
               </div>
               <div>
@@ -249,12 +249,12 @@ export const StudentBasicDashboard: React.FC<StudentBasicDashboardProps> = ({
           </div>
 
           <div className="space-y-4 mb-6">
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200/60">
+            <div className="bg-linear-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200/60">
               <p className="text-xs text-gray-600 mb-1 font-medium">Curso Principal</p>
               <p className="text-sm text-gray-800">{dashboardData.registrations.main}</p>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200/60">
+            <div className="bg-linear-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200/60">
               <p className="text-xs text-gray-600 mb-2 font-medium">Disciplinas Matriculadas</p>
               <div className="flex flex-wrap gap-2">
                 {dashboardData.registrations.subjects.slice(0, 6).map((subject, index) => (

@@ -1,4 +1,4 @@
-// components/Home/Navbar/Student.tsx (StudentSidebar atualizado)
+// components/Home/Navbar/Student.tsx (StudentSidebar atualizado com Pagamentos)
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { VscChevronDown, VscChevronRight } from "react-icons/vsc";
@@ -20,6 +20,7 @@ import {
     IoLibraryOutline,
     IoBookOutline,
     IoDocumentsOutline,
+    IoWalletOutline,
 } from "react-icons/io5";
 import { FaGraduationCap, FaChalkboardTeacher } from "react-icons/fa";
 import { BsBook, BsClockHistory, BsJournalBookmark } from "react-icons/bs";
@@ -52,7 +53,8 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
         curriculum: false,
         schedule: false,
         materials: false,
-        documents: false
+        documents: false,
+        payments: false // Nova seção
     });
 
     const currentTexts = studentTexts[language];
@@ -72,8 +74,6 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
         navigate(path);
     };
 
-    // Período letivo atual
-
     // Menu Items
     const menuItems = [
         { path: '/student/dashboard', icon: CiHome, label: currentTexts.dashboard },
@@ -90,7 +90,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
         { path: '/student/teachers', icon: FaChalkboardTeacher, label: currentTexts.teachers },
     ];
 
-    // Plano Curricular (Nova seção)
+    // Plano Curricular
     const curriculumItems = [
         { path: '/student/curriculum/plan', icon: IoBookOutline, label: 'Plano Curricular' },
         { path: '/student/curriculum/enrolled', icon: MdOutlineSchool, label: 'Disciplinas Inscritas' },
@@ -110,7 +110,12 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
         { path: '/student/materials/library', icon: IoLibraryOutline, label: currentTexts.digitalLibrary },
     ];
 
-    // Documentos e Certificados (Atualizado)
+    // Pagamentos (Nova seção)
+    const paymentsItems = [
+        { path: '/student/payments/overview', icon: IoWalletOutline, label: currentTexts.financial },
+    ];
+
+    // Documentos e Certificados
     const documentsItems = [
         { path: '/student/documents/reports', icon: IoDocumentTextOutline, label: currentTexts.reportCards },
         { path: '/student/documents/certificates', icon: CiFileOn, label: currentTexts.certificates },
@@ -170,7 +175,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                 <div className="flex items-center justify-between p-5 border-b border-gray-200">
                     {!isCollapsed && (
                         <div className="flex items-center space-x-3">
-                            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                            <div className="h-10 w-10 rounded-xl bg-linear-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                                 <span className="text-sm font-bold text-white">U</span>
                             </div>
                             <div className="flex flex-col">
@@ -184,7 +189,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
 
                     {isCollapsed && (
                         <div className="flex items-center justify-center w-full">
-                            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                            <div className="h-10 w-10 rounded-xl bg-linear-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                                 <span className="text-sm font-bold text-white">U</span>
                             </div>
                         </div>
@@ -207,7 +212,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                 {!isCollapsed && (
                     <div className="p-5 border-b border-gray-200">
                         <div className="flex items-center space-x-3 mb-4">
-                            <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center">
+                            <div className="w-12 h-12 bg-linear-to-br from-gray-700 to-gray-800 rounded-full flex items-center justify-center">
                                 <span className="text-white font-semibold text-base">
                                     {studentName.split(' ').map(n => n[0]).join('')}
                                 </span>
@@ -265,7 +270,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                                         {!isCollapsed && <span className="font-medium">{item.label}</span>}
                                     </div>
                                     {!isCollapsed && item.badge && (
-                                        <span className="bg-blue-600 text-white text-xs font-medium rounded-full h-6 w-6 flex items-center justify-center">
+                                        <span className="bg-linear-to-br from-blue-50/80 to-white/90 text-blue-600 text-xs font-semibold px-2.5 py-1 rounded-lg border border-blue-200/40 shadow-[0_1px_2px_rgba(59,130,246,0.05)] backdrop-blur-sm">
                                             {item.badge}
                                         </span>
                                     )}
@@ -337,7 +342,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                         )}
                     </div>
 
-                    {/* Plano Curricular (Nova seção) */}
+                    {/* Plano Curricular */}
                     <div className="px-4">
                         {!isCollapsed ? (
                             <>
@@ -391,6 +396,64 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                                 title="Plano Curricular"
                             >
                                 <IoBookOutline size={20} className="text-gray-600" />
+                            </button>
+                        )}
+                    </div>
+
+                    {/* Pagamentos (Nova seção) */}
+                    <div className="px-4">
+                        {!isCollapsed ? (
+                            <>
+                                <button
+                                    onClick={() => toggleSection('payments')}
+                                    className="flex items-center justify-between w-full px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-all duration-200 mb-1.5"
+                                >
+                                    <div className="flex items-center space-x-3">
+                                        <IoWalletOutline size={18} className="text-gray-600" />
+                                        <span className="font-medium">Pagamentos</span>
+                                    </div>
+                                    {expandedSections.payments ? (
+                                        <VscChevronDown size={16} className="text-gray-500 transition-transform duration-200" />
+                                    ) : (
+                                        <VscChevronRight size={16} className="text-gray-500 transition-transform duration-200" />
+                                    )}
+                                </button>
+
+                                {expandedSections.payments && (
+                                    <div className="pl-11 space-y-1 mt-1">
+                                        {paymentsItems.map((item) => {
+                                            const Icon = item.icon;
+                                            const isActive = location.pathname === item.path;
+
+                                            return (
+                                                <button
+                                                    key={item.path}
+                                                    onClick={() => handleNavigation(item.path)}
+                                                    className={`
+                                                        flex items-center justify-between w-full px-2 py-2 rounded text-sm transition-all duration-200
+                                                        ${isActive
+                                                            ? 'bg-gray-100 text-gray-900'
+                                                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                                        }
+                                                    `}
+                                                >
+                                                    <div className="flex items-center space-x-2">
+                                                        <Icon size={14} className={isActive ? 'text-gray-800' : 'text-gray-500'} />
+                                                        <span>{item.label}</span>
+                                                    </div>
+                                                </button>
+                                            );
+                                        })}
+                                    </div>
+                                )}
+                            </>
+                        ) : (
+                            <button
+                                onClick={() => handleNavigation('/student/payments/overview')}
+                                className="flex items-center justify-center w-full px-3 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-all duration-200 mb-1.5"
+                                title="Pagamentos"
+                            >
+                                <IoWalletOutline size={20} className="text-gray-600" />
                             </button>
                         )}
                     </div>
@@ -521,7 +584,7 @@ const StudentSidebar: React.FC<StudentSidebarProps> = ({
                         )}
                     </div>
 
-                    {/* Documentos e Certificados (Atualizado) */}
+                    {/* Documentos e Certificados */}
                     <div className="px-4">
                         {!isCollapsed ? (
                             <>

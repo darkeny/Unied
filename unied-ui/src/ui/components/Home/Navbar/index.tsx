@@ -198,7 +198,7 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                         <div className="flex pb-3 flex-1 items-center justify-start">
                             <NavLink to="/" className="flex items-center gap-3 group">
                                 <div className="flex shrink-0 items-center">
-                                    <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-100 to-white border border-blue-200 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                                    <div className="h-12 w-12 rounded-xl bg-linear-to-br from-blue-100 to-white border border-blue-200 flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow duration-300">
                                         <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">U</span>
                                     </div>
                                 </div>
@@ -320,7 +320,7 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                                                                         className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50/80 transition-all duration-200 group border border-transparent hover:border-gray-200"
                                                                     >
                                                                         <div className="flex-shrink-0">
-                                                                            <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center text-gray-600 group-hover:text-blue-500 transition-colors duration-200 border border-gray-200/50">
+                                                                            <div className="h-9 w-9 rounded-lg bg-linear-to-br from-gray-100 to-gray-50 flex items-center justify-center text-gray-600 group-hover:text-blue-500 transition-colors duration-200 border border-gray-200/50">
                                                                                 <span className="text-lg">{item.icon}</span>
                                                                             </div>
                                                                         </div>
@@ -520,7 +520,7 @@ const Navbar: React.FC<NavbarProps> = ({ language }) => {
                                                         onClick={() => setMenuOpen(false)}
                                                         className="flex flex-col items-center p-3 text-sm text-gray-700 bg-gray-50 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 text-center"
                                                     >
-                                                        <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center text-gray-600 mb-2 border border-gray-200/50">
+                                                        <div className="h-9 w-9 rounded-lg bg-linear-to-br from-gray-100 to-gray-50 flex items-center justify-center text-gray-600 mb-2 border border-gray-200/50">
                                                             <span className="text-lg">{item.icon}</span>
                                                         </div>
                                                         <div className="font-medium text-xs">{item.name}</div>

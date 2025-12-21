@@ -112,7 +112,7 @@ export function Hero({ language }: HeroProps) {
             <div className="mt-12 lg:mt-0 relative">
               <div className="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                 {/* Main image container */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-blue-600/20">
+                <div className="absolute inset-0 bg-linear-to-br from-blue-400/20 to-blue-600/20">
                   {/* Decorative elements */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
                   <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-200 rounded-full translate-y-20 -translate-x-20 opacity-50"></div>
@@ -121,7 +121,7 @@ export function Hero({ language }: HeroProps) {
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80">
                     {/* Main student photo */}
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-56 h-56 rounded-xl overflow-hidden shadow-2xl z-10">
-                      <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                      <div className="w-full h-full bg-linear-to-br from-blue-100 to-blue-200 flex items-center justify-center">
                         <div className="text-center">
                           <div className="text-6xl mb-2">👨‍🎓</div>
                           <div className="text-blue-600 font-semibold text-sm">{language === 'PT' ? 'Estudante' : 'Student'}</div>
@@ -131,7 +131,7 @@ export function Hero({ language }: HeroProps) {
 
                     {/* Teacher photo */}
                     <div className="absolute top-4 right-4 w-32 h-32 rounded-lg overflow-hidden shadow-lg z-20">
-                      <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+                      <div className="w-full h-full bg-linear-to-br from-blue-50 to-blue-100 flex items-center justify-center">
                         <div className="text-center">
                           <div className="text-4xl mb-1">👩‍🏫</div>
                           <div className="text-blue-600 font-medium text-xs">{language === 'PT' ? 'Professora' : 'Teacher'}</div>
@@ -141,7 +141,7 @@ export function Hero({ language }: HeroProps) {
 
                     {/* Parent photo */}
                     <div className="absolute bottom-8 left-4 w-32 h-32 rounded-lg overflow-hidden shadow-lg z-20">
-                      <div className="w-full h-full bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
+                      <div className="w-full h-full bg-linear-to-br from-green-50 to-green-100 flex items-center justify-center">
                         <div className="text-center">
                           <div className="text-4xl mb-1">👨‍👩‍👧‍👦</div>
                           <div className="text-green-600 font-medium text-xs">{language === 'PT' ? 'Família' : 'Family'}</div>
