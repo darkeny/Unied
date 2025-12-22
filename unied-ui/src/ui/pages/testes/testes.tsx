@@ -1,16 +1,16 @@
-import { TeacherController } from "../../../endpoints/controller/teacher/teacherController";
+import { ClassController } from "../../../endpoints/controller/class/classController";
 
+export function Tests() {
+  async function fetchh() {
+    const controller = new ClassController();
+    controller.readAllClasses();
+  }
 
-export function Tests (){
-
-async function fetchh() {
-const controller=new TeacherController();
-controller.readAllTeachers();
-}
-
-return (
-<div>
-<button className="bg-amber-600 p-5" onClick={fetchh}>Clique aqui</button>
-</div>
-);
+  return (
+    <div>
+      <button className="bg-amber-600 p-5" onClick={fetchh}>
+        Clique aqui
+      </button>
+    </div>
+  );
 }
