@@ -120,17 +120,6 @@
       "admission_date": "2021-01-10",
       "status": "active",
       "education": "MSc Chemistry"
-    },
-    {
-      "id": "5",
-      "employee_number": "EMP005",
-      "full_name": "Mr. David Lee",
-      "specialty": "Biology",
-      "email": "david.lee@example.com",
-      "phone": "555999000",
-      "admission_date": "2022-05-05",
-      "status": "active",
-      "education": "MSc Biology"
     }
   ],
   "classes": [

@@ -1,17 +1,17 @@
 import axios from "axios";
 import { URLBASE } from "../../helpers/constants/urls";
-import type { StudentModel } from "../../model/student/studentModel";
 import type { IApiResponse } from "../../interfaces/api/iApiResponse";
 import type { IRepository } from "../../interfaces/iRepository/iRepository";
 import { MESSAGES } from "../../helpers/constants/message/Message";
 import { STATUS_CODE } from "../../helpers/constants/message/StatusCode";
-export default class StudentRepository implements IRepository<StudentModel> {
-  uri = "/students";
+import type { TeacherModel } from "../../model/teacher/teacher";
+export default class TeacherRepository implements IRepository<TeacherModel> {
+  uri = "/teachers";
 
-  async readById(id: number): Promise<IApiResponse<StudentModel[]>> {
+  async readById(id: number): Promise<IApiResponse<TeacherModel[]>> {
     try {
       const request = await axios.get(URLBASE + this.uri + "/" + id.toString());
-      const response: IApiResponse<StudentModel[]> = {
+      const response: IApiResponse<TeacherModel[]> = {
         status: STATUS_CODE.SUCCESS.OK,
         message: MESSAGES.SUCCESS.READ,
         isError: false,
@@ -26,7 +26,7 @@ export default class StudentRepository implements IRepository<StudentModel> {
       console.log("response", response);
       return response;
     } catch (error) {
-      const response: IApiResponse<StudentModel[]> = {
+      const response: IApiResponse<TeacherModel[]> = {
         status: STATUS_CODE.SERVER_ERROR.INTERNAL,
         message: MESSAGES.ERROR.READ + error,
         isError: true,
@@ -35,10 +35,10 @@ export default class StudentRepository implements IRepository<StudentModel> {
       return response;
     }
   }
-  async readAll(): Promise<IApiResponse<StudentModel[]>> {
+  async readAll(): Promise<IApiResponse<TeacherModel[]>> {
     try {
       const request = await axios.get(URLBASE + this.uri);
-      const response: IApiResponse<StudentModel[]> = {
+      const response: IApiResponse<TeacherModel[]> = {
         status: STATUS_CODE.SUCCESS.OK,
         message: MESSAGES.SUCCESS.READ,
         isError: false,
@@ -53,7 +53,7 @@ export default class StudentRepository implements IRepository<StudentModel> {
       console.log("response", response);
       return response;
     } catch (error) {
-      const response: IApiResponse<StudentModel[]> = {
+      const response: IApiResponse<TeacherModel[]> = {
         status: STATUS_CODE.SERVER_ERROR.INTERNAL,
         message: MESSAGES.ERROR.READ + error,
         isError: true,
@@ -63,10 +63,10 @@ export default class StudentRepository implements IRepository<StudentModel> {
     }
   }
 
-  async create(student: StudentModel): Promise<IApiResponse<StudentModel[]>> {
+  async create(student: TeacherModel): Promise<IApiResponse<TeacherModel[]>> {
     try {
       const request = await axios.post(URLBASE + this.uri, student);
-      const response: IApiResponse<StudentModel[]> = {
+      const response: IApiResponse<TeacherModel[]> = {
         status: STATUS_CODE.SUCCESS.CREATED,
         message: MESSAGES.SUCCESS.CREATE,
         isError: false,
@@ -75,7 +75,7 @@ export default class StudentRepository implements IRepository<StudentModel> {
       console.log("Status", request.status);
       return response;
     } catch (error) {
-      const response: IApiResponse<StudentModel[]> = {
+      const response: IApiResponse<TeacherModel[]> = {
         status: STATUS_CODE.SERVER_ERROR.INTERNAL,
         message: MESSAGES.ERROR.CREATE + error,
         isError: true,
@@ -87,14 +87,14 @@ export default class StudentRepository implements IRepository<StudentModel> {
     }
   }
 
-  async update(student: StudentModel): Promise<IApiResponse<StudentModel[]>> {
+  async update(student: TeacherModel): Promise<IApiResponse<TeacherModel[]>> {
     try {
       const request = await axios.put(
         URLBASE + this.uri + "/" + student.id.toString(),
         student
       );
 
-      const response: IApiResponse<StudentModel[]> = {
+      const response: IApiResponse<TeacherModel[]> = {
         status: STATUS_CODE.SUCCESS.OK,
         message: MESSAGES.SUCCESS.UPDATE,
         isError: false,
@@ -103,7 +103,7 @@ export default class StudentRepository implements IRepository<StudentModel> {
       console.log("Status", request.status);
       return response;
     } catch (error) {
-      const response: IApiResponse<StudentModel[]> = {
+      const response: IApiResponse<TeacherModel[]> = {
         status: STATUS_CODE.SERVER_ERROR.INTERNAL,
         message: MESSAGES.ERROR.UPDATE + error,
         isError: true,
@@ -114,13 +114,13 @@ export default class StudentRepository implements IRepository<StudentModel> {
       return response;
     }
   }
-  async delete(id: number): Promise<IApiResponse<StudentModel[]>> {
+  async delete(id: number): Promise<IApiResponse<TeacherModel[]>> {
     try {
       const request = await axios.delete(
         URLBASE + this.uri + "/" + id.toString()
       );
 
-      const response: IApiResponse<StudentModel[]> = {
+      const response: IApiResponse<TeacherModel[]> = {
         status: STATUS_CODE.SUCCESS.OK,
         message: MESSAGES.SUCCESS.DELETE,
         isError: false,
@@ -129,7 +129,7 @@ export default class StudentRepository implements IRepository<StudentModel> {
       console.log("Status", request.status);
       return response;
     } catch (error) {
-      const response: IApiResponse<StudentModel[]> = {
+      const response: IApiResponse<TeacherModel[]> = {
         status: STATUS_CODE.SERVER_ERROR.INTERNAL,
         message: MESSAGES.ERROR.DELETE + error,
         isError: true,
