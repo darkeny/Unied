@@ -1,9 +1,10 @@
-import { ClassController } from "../../../endpoints/controller/class/classController";
+import { ClassTeacherController } from "../../../endpoints/controller/classTeacher/classTeacherController";
+
 
 export function Tests() {
   async function fetchh() {
-    const controller = new ClassController();
-    controller.readAllClasses();
+    const controller = new ClassTeacherController();
+    controller.readAllClassTeachers();
   }
 
   return (
